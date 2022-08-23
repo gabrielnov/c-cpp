@@ -55,8 +55,7 @@ int main() {
 
   
     Complexo c1 = leComplexo_2();
-    Complexo c2 = leComplexo_2();
-    Complexo r = multiplicacao(c1, c2);
-    cout << r.real << " + " << r.imaginario << "i" << endl;
+
+    cout << c1.real << " + " << c1.imaginario << "i" << endl;
     return 0;
 }
