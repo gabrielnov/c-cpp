@@ -86,8 +86,6 @@ void Alunos::mostraAlunos(string curso){
 }
 
 void Alunos::removeAluno(string tia){
-    Aluno a2;
-
     for(int i = 0; i < total; i++){
         if (aluno[i].getTia() == tia){
             for(int j = i; j < total; j++){
