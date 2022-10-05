@@ -1,0 +1,1 @@
+void selection(int* vetor, int n);
