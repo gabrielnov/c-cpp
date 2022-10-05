@@ -1,10 +1,7 @@
-#include <stdio.h>
-#include <time.h>
 #include "bubble_sort.h"
 
 void bubble(int* vetor, int n){
-    clock_t t;
-    t = clock();
+    clock_t start = clock();
    
     int i, j, aux;
 
@@ -18,8 +15,8 @@ void bubble(int* vetor, int n){
         }
     }
 
-    t = clock() - t;
-    double total = ((double)t)/CLOCKS_PER_SEC;
+    clock_t end = clock();
+    float total = (float)(end - start) / CLOCKS_PER_SEC;
 
-    printf("\n\nBubble sort levou %.2f segundos para ordenar %d numeros.\n", total, n);
+    printf("Bubble sort levou    %f segundos para ordenar %d numeros.\n", total, n);
 }

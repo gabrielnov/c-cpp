@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <time.h>
 #include "insertion_sort.h"
 
 void insertion(int* vetor, int n){
@@ -25,5 +23,5 @@ void insertion(int* vetor, int n){
     t = clock() - t;
     double total = ((double)t)/CLOCKS_PER_SEC;
 
-    printf("\n\nInsertion sort levou %.2f segundos para ordenar %d numeros.\n", total, n);
+    printf("Insertion sort levou %f segundos para ordenar %d numeros.\n", total, n);
 }

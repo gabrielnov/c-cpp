@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <time.h>
 #include "selection_sort.h"
 
 void selection(int* vetor, int n){
@@ -24,5 +22,5 @@ void selection(int* vetor, int n){
     t = clock() - t;
     double total = ((double)t)/CLOCKS_PER_SEC;
 
-    printf("\n\nSelection sort levou %.2f segundos para ordenar %d numeros.\n", total, n);
+    printf("Selection sort levou %f segundos para ordenar %d numeros.\n", total, n);
 }
