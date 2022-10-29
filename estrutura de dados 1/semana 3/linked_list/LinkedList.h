@@ -8,6 +8,7 @@
 class LinkedList{
 	private:
 		NodeLL *head;
+		NodeLL *tail;
 		int qtde;
 	public:	
 		LinkedList();
@@ -24,9 +25,12 @@ class LinkedList{
 		void aumentaQtde() { qtde++;}
 		void diminuiQtde() { qtde--;}
 		int getQtde(){ return qtde; }
-		NodeLL* getHead(void){ return head; };
-		void setHead(NodeLL *head) { this->head = head;	}
 		
+		NodeLL* getHead(void){ return head; };
+		void setHead(NodeLL *head) { this->head = head;	};
+		
+		NodeLL* getTail(void){ return tail; };
+		void setTail(NodeLL *tail) { this->tail = tail;	};
 };
 
 #endif

@@ -4,6 +4,7 @@
 
 LinkedList::LinkedList(){
 	head = nullptr;
+	tail = nullptr;
 	qtde = 0;
 };
 LinkedList::~LinkedList(){
@@ -22,6 +23,7 @@ void LinkedList::clear(){
 		pAnt = nullptr;
 	}
 	head = nullptr;	
+	tail = nullptr;
 }
 
 bool LinkedList::isEmpty(){
@@ -47,6 +49,7 @@ bool LinkedList::insertHead(int id){
       }else { // Insere no começo e atualiza o ponteiro
       	aux->setProx(head);
       	head = aux;
+      	tail = head;
       }
       
       aumentaQtde();
@@ -55,19 +58,18 @@ bool LinkedList::insertHead(int id){
     else return false; // std::cout << "Overflow – Sem memória";
 };
 
+
 bool LinkedList::insertTail(int id){
 	NodeLL *aux, *pAnda;
     if (!isFull()){
       aux = new NodeLL(id, nullptr);
       if (isEmpty()){ // Lista está vazia
         head = aux;
+        tail = aux;
       }else { // Insere no final e atualiza o ponteiro
-        pAnda = head;  // Ponteiro que anda até o final da lista 
-        while (pAnda->getProx() != nullptr)
-           pAnda = pAnda->getProx();
-        pAnda->setProx( aux );
+      	tail->setProx(aux);
+      	tail = aux;
       }
-      
       aumentaQtde();
 	  return true;
     }
@@ -95,7 +97,7 @@ bool LinkedList::remove(int id){
     else{
       pAnda = head;
       // procura a posição do elemento na lista
-      while ((pAnda != nullptr) && (pAnda->getId() != id)){
+      while ((pAnda != tail) && (pAnda->getId() != id)){
         pAnt = pAnda;
         pAnda = pAnda->getProx();
       }
@@ -110,8 +112,6 @@ bool LinkedList::remove(int id){
 		}
 		delete pAnda;
       	pAnda = nullptr;
-      	
-      	diminuiQtde();
       	return true;   
       }
     }
