@@ -42,7 +42,7 @@ void executa(void *arg)
 int main()
 {
   // Criamos o array de garfos (recursos que serão disputados pelas threads)
-  for (int i = 1; i <= TOTAL_FILOSOFOS; i++){
+  for (int i = 0; i < TOTAL_FILOSOFOS; i++){
     int erro = pthread_mutex_init(&garfos[i], NULL); // NULL significa que iniciamos com os parametros default do mutex
     if (erro != 0){
       printf("\n erro criando garfo %d \n", i);
@@ -52,7 +52,7 @@ int main()
 
   /* Cria as cinco threads que representam os 5 filosofos
      passamos a função de comer para cada thread        */
-  for (int i = 1; i <= TOTAL_FILOSOFOS; i++){
+  for (int i = 0; i < TOTAL_FILOSOFOS; i++){
 
     /* inicializamos a thread passando o endereço da thread, 
         os atributos (NULL),
@@ -69,7 +69,7 @@ int main()
   /* espera a execução das threads
    o segundo parametro é o código de retorno da execução 
    e não é utilizado nesse caso */
-  for (int i = 1; i <= TOTAL_FILOSOFOS; i++){
+  for (int i = 0; i < TOTAL_FILOSOFOS; i++){
     int erro = pthread_join(filosofos[i], NULL);
     if (erro != 0){
       printf("\n erro finalizando thread %d \n", i);
@@ -78,7 +78,7 @@ int main()
   }
 
   // esperamos os mutexes estarem unlocked e os removemos
-  for (int i = 1; i <= TOTAL_FILOSOFOS; i++){
+  for (int i = 0; i <= TOTAL_FILOSOFOS; i++){
     int erro = pthread_mutex_destroy(&garfos[i]);
     if (erro != 0){
       printf("\n erro finalizando semaforo %d\n", i);
